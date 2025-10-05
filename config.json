@@ -1,0 +1,31 @@
+{
+  "app": {
+    "name": "Go Clean Architecture",
+    "env": "development",
+    "port": 3000
+  },
+  "database": {
+    "host": "localhost",
+    "port": 3306,
+    "username": "root",
+    "password": "",
+    "name": "golang_clean_architecture",
+    "max_idle_conns": 10,
+    "max_open_conns": 100,
+    "conn_max_lifetime": 3600
+  },
+  "kafka": {
+    "brokers": ["localhost:9092"],
+    "consumer_group": "go-skeleton-consumer",
+    "topics": {
+      "example": "example-topic"
+    }
+  },
+  "grpc": {
+    "port": 50051
+  },
+  "log": {
+    "level": "info",
+    "format": "json"
+  }
+}
