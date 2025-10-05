@@ -174,6 +174,7 @@ GET /health
 ```
 
 **Response:**
+
 ```json
 {
   "status": "ok"
@@ -191,6 +192,7 @@ POST /api/v1/auth/register
 ```
 
 **Request Body:**
+
 ```json
 {
   "name": "John Doe",
@@ -207,6 +209,7 @@ POST /api/v1/auth/register
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -227,6 +230,7 @@ POST /api/v1/auth/login
 ```
 
 **Request Body:**
+
 ```json
 {
   "email": "john@example.com",
@@ -235,6 +239,7 @@ POST /api/v1/auth/login
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -274,6 +279,7 @@ PUT /api/v1/users/:id
 ```
 
 **Request Body:**
+
 ```json
 {
   "name": "John Doe Updated",
@@ -299,6 +305,7 @@ POST /api/v1/work-orders
 ```
 
 **Request Body:**
+
 ```json
 {
   "source": "cashier",
@@ -318,6 +325,7 @@ POST /api/v1/work-orders
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -343,6 +351,7 @@ GET /api/v1/work-orders?page=1&per_page=10
 ```
 
 Filter by status:
+
 ```http
 GET /api/v1/work-orders?status=pending
 ```
@@ -362,6 +371,7 @@ PUT /api/v1/work-orders/:id
 ```
 
 **Request Body:**
+
 ```json
 {
   "status": "confirmed",
@@ -381,47 +391,56 @@ DELETE /api/v1/work-orders/:id
 ## Entitas Database
 
 ### 1. Users
+
 - Multi-role: owner, admin, cashier, staff, customer
 - Membership support
 - Soft delete
 
 ### 2. Membership Types
+
 - Flexible benefits (JSON)
 - Active/inactive status
 
 ### 3. Vehicles & Customer Vehicles
+
 - Master data kendaraan
 - Relasi customer dengan kendaraan
 - License plate tracking
 
 ### 4. Product Categories & Products
+
 - Kategori produk dengan icon
 - Product kind: service, addon, retail
 - Premium product flag
 
 ### 5. Work Orders
+
 - Multi-source: kiosk, cashier, online
 - Status workflow lengkap
 - Queue number otomatis
 - Financial tracking (subtotal, discount, tax, total)
 
 ### 6. Work Order Items
+
 - Product snapshot (nama & harga)
 - Staff assignment
 - Item notes
 
 ### 7. Payments
+
 - Multi-method: cash, qris, transfer, e_wallet
 - Multi-payment support (DP, cicilan)
 - Change calculation
 - Payment status tracking
 
 ### 8. Shifts
+
 - Kasir shift management
 - Initial & final cash tracking
 - Sales summary
 
 ### 9. Device FCM Tokens
+
 - Push notification support
 - Multi-device per user
 
@@ -430,23 +449,27 @@ DELETE /api/v1/work-orders/:id
 ## Alur Bisnis Utama
 
 ### 1. Kiosk Flow
+
 1. Customer membuat work order di kiosk (source=kiosk)
 2. Pilih kendaraan & paket service
 3. Sistem assign queue number
 4. Status: pending → confirmed → in_progress → ready → completed
 
 ### 2. Cashier Flow
+
 1. Kasir buka shift (start shift)
 2. Buat/kelola work orders
 3. Proses pembayaran (tunai/non-tunai)
 4. Tutup shift dengan final cash count
 
 ### 3. Payment Flow
+
 1. Work order bisa dibayar bertahap (DP, pelunasan)
 2. Sistem track total pembayaran
 3. Auto-complete work order saat fully paid
 
 ### 4. Retail Flow
+
 1. Buat work order dengan type=retail
 2. Tambahkan produk retail
 3. Langsung bayar dan selesai
@@ -482,19 +505,19 @@ go build -o flashlight-go cmd/server/main.go
 
 ## Environment Variables
 
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `DB_HOST` | Database host | localhost |
-| `DB_PORT` | Database port | 5432 |
-| `DB_USER` | Database user | postgres |
-| `DB_PASSWORD` | Database password | postgres |
-| `DB_NAME` | Database name | flashlight_db |
-| `DB_SSLMODE` | SSL mode | disable |
-| `SERVER_PORT` | Server port | 8080 |
-| `SERVER_HOST` | Server host | 0.0.0.0 |
-| `JWT_SECRET` | JWT secret key | - |
-| `JWT_EXPIRATION_HOURS` | JWT expiration | 24 |
-| `APP_ENV` | Environment | development |
+| Variable               | Description       | Default       |
+| ---------------------- | ----------------- | ------------- |
+| `DB_HOST`              | Database host     | localhost     |
+| `DB_PORT`              | Database port     | 5432          |
+| `DB_USER`              | Database user     | postgres      |
+| `DB_PASSWORD`          | Database password | postgres      |
+| `DB_NAME`              | Database name     | flashlight_db |
+| `DB_SSLMODE`           | SSL mode          | disable       |
+| `SERVER_PORT`          | Server port       | 8080          |
+| `SERVER_HOST`          | Server host       | 0.0.0.0       |
+| `JWT_SECRET`           | JWT secret key    | -             |
+| `JWT_EXPIRATION_HOURS` | JWT expiration    | 24            |
+| `APP_ENV`              | Environment       | development   |
 
 ---
 
