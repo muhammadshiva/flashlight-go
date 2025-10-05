@@ -533,4 +533,4 @@ go build -o flashlight-go cmd/server/main.go
 
 ## License
 
-Copyright © 2025 Matariza
+Copyright © 2025 Matariza Dev Solutions
