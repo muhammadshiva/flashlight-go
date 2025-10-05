@@ -1,4 +1,4 @@
-# Go Clean Architecture Skeleton
+# Flashlight GO Architecture
 
 A production-ready Go project skeleton implementing clean architecture principles with modern tech stack.
 
